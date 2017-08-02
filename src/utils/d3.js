@@ -86,6 +86,11 @@ export const onTick = (conns, nodes, subnodes) => {
  * Return drag behavior to use on d3.selection.call().
  */
 export const d3Drag = (simulation, svg, nodes) => {
+  for(let i in nodes){
+    var node = nodes[i];
+    node.fx = node.fx || node.x;
+    node.fy = node.fy || node.y;
+  }
   const dragStart = (node) => {
     if (!event.active) {
       simulation.alphaTarget(0.2).restart();

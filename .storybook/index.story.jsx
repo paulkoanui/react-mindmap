@@ -1,16 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import MindMap from '../src';
+import { MindMapEditContainer } from '../src/MindMap';
 
 const render = (path, editable) => {
   const map = require(`./maps-parsed/${path}`);
 
-  return <MindMap
-    connections={map.connections}
-    nodes={map.nodes}
-    subnodes={map.subnodes}
-    editable={editable}
-  />;
+  return (
+  <div>
+    <MindMapEditContainer
+      connections={map.connections}
+      nodes={map.nodes}
+      subnodes={map.subnodes}
+      editable={editable}
+    />
+  </div>
+  );
 };
 
 storiesOf('maps', module)
