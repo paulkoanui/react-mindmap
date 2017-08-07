@@ -8,6 +8,7 @@ import {
   zoom,
   zoomIdentity,
 } from 'd3';
+import Form from 'react-jsonschema-form';
 
 import {
   d3Connections,
@@ -17,7 +18,6 @@ import {
   onTick,
 } from './utils/d3';
 
-import Form from "react-jsonschema-form";
 import { getDimensions, getViewBox } from './utils/dimensions';
 import subnodesToHTML from './utils/subnodesToHTML';
 import nodeToHTML from './utils/nodeToHTML';
@@ -26,33 +26,25 @@ import '../sass/main.sass';
 export class MindMapEditContainer extends React.Component {
   constructor(props) {
     super(props);
-    //capture the original map input as base that all edits will be overlayed onto
+    // capture the original map input as base that all edits will be overlayed onto
     this.state = {
       connections: JSON.parse(JSON.stringify(props.connections)) || [],
       nodes: JSON.parse(JSON.stringify(props.nodes)) || [],
       subnodes: [],
-      editable: props.editable,
-      edits: []
+      edits: [],
     };
-
-    //attach to the window (i know, i'm in a time crunch)
-    window.MindMapEditor = this;
   }
 
-  getEdits(){
-    return JSON.parse(JSON.stringify(this.state.edits));
-  }
-
-  cleanNodes(fullNodes){
-    if (fullNodes){
+  cleanNodes(fullNodes) {
+    if (fullNodes) {
       const getSubnodes = (subnodes) => {
-        if (subnodes){
+        if (subnodes) {
           return subnodes.map((node) => {
             return {
               text: node.text,
               url: node.url,
               category: node.category,
-              note: node.note
+              note: node.note,
             };
           });
         }else{
@@ -65,9 +57,9 @@ export class MindMapEditContainer extends React.Component {
           url: node.url,
           note: node.note,
           category: node.category,
-          fx: node.fx,
-          fy: node.fy,
-          nodes: getSubnodes(node.nodes)
+          fx: node.fx || node.x,
+          fy: node.fy || node.y,
+          nodes: getSubnodes(node.nodes),
         };
       });
     }else{
@@ -78,76 +70,136 @@ export class MindMapEditContainer extends React.Component {
   cleanConnections(fullConns){
     if (fullConns){
       return fullConns.map((conn) => {
-        return {
-          source: conn.source.text,
-          target: conn.target.text,
-          curve: JSON.parse(JSON.stringify(conn.curve))
-        };
+        return this.cleanConnection(conn);
       });
     }else{
       return [];
     }
   }
 
+  cleanConnection(conn){
+    var s = conn.source;
+    if (conn.source && conn.source.text){
+      s = conn.source.text;
+    }
+    var t = conn.target;
+    if (conn.target && conn.target.text){
+      t = conn.target.text;
+    }
+    var c = JSON.parse(JSON.stringify(conn.curve || {}));
+    return {
+      source: s,
+      target: t,
+      curve: c
+    };
+  }
+
   handleUpdate(args){
     this.setState((prevState) => {
-      //locate the node we're coming "from"
-      var fromNodeIndex = -1;
-      var index = 0;
-      for (let node of prevState.nodes){
-        if (node.text === args.from.text){
-          fromNodeIndex = index;
-          break;
-        }
-        index++;
-      }
-      if (fromNodeIndex != -1){
-        //replace the "from" node with the "to" node
-        var nodeTo = {};
-        this.mergeFormData(nodeTo, args.to);
-        var newNodes = this.cleanNodes(JSON.parse(JSON.stringify(prevState.nodes)));
-        newNodes.splice(fromNodeIndex, 1, nodeTo);
-        var newConnections = this.cleanConnections(JSON.parse(JSON.stringify(prevState.connections)));
-        if (args.from.text != args.to.text){
-          newConnections.forEach((conn) => {
-            if (conn.source === args.from.text){
-              conn.source = args.to.text;
-            }
-            if (conn.target === args.from.text){
-              conn.target = args.to.text;
-            }
-          });
-        }
-        var newEdits = JSON.parse(JSON.stringify(prevState.edits));
-        newEdits.push(args);
-        this.props.onEdit &&
-        this.props.onEdit(newEdits);
-        return { nodes: newNodes, connections: newConnections, edits: newEdits, editDialog: false, lastEdit: new Date().getTime() };
+      var newState = this.applyUpdate(args, prevState);
+      if (newState){
+        return newState;
       }
     });
   }
 
-  handleAdd(args){
-    this.setState((prevState, props) => {
-      //create a new node
+  applyUpdate(args, prevState){
+    var fromNodeIndex = -1;
+    var index = 0;
+    for (let node of prevState.nodes){
+      if (node.text === args.from.text){
+        fromNodeIndex = index;
+        break;
+      }
+      index++;
+    }
+    if (fromNodeIndex != -1){
+      //replace the "from" node with the "to" node
       var nodeTo = {};
-      var nodeFrom = {};
       this.mergeFormData(nodeTo, args.to);
-      this.mergeFormData(nodeFrom, args.from);
       var newNodes = this.cleanNodes(JSON.parse(JSON.stringify(prevState.nodes)));
+      newNodes.splice(fromNodeIndex, 1, nodeTo);
       var newConnections = this.cleanConnections(JSON.parse(JSON.stringify(prevState.connections)));
-      newNodes.push(nodeTo);
-      newConnections.push(args.connection);
+      if (args.from.text != args.to.text){
+        newConnections.forEach((conn) => {
+          if (conn.source === args.from.text){
+            conn.source = args.to.text;
+          }
+          if (conn.target === args.from.text){
+            conn.target = args.to.text;
+          }
+        });
+      }
       var newEdits = JSON.parse(JSON.stringify(prevState.edits));
       newEdits.push(args);
       this.props.onEdit &&
       this.props.onEdit(newEdits);
       return { nodes: newNodes, connections: newConnections, edits: newEdits, editDialog: false, lastEdit: new Date().getTime() };
+    }
+  }
+
+  handleAdd(args){
+    this.setState((prevState) => {
+      return this.applyAdd(args, prevState);
     });
   }
 
-  handleDelete({ formData }){
-    console.log('handleDelete: ', JSON.stringify(formData, null, 2));
+  applyAdd(args, prevState){
+    //create a new node OR locate an existing node and add a connection
+    var toNodeExisting = null;
+    for (let node of prevState.nodes){
+      if (node.text === args.to.text){
+        toNodeExisting = node;
+        break;
+      }
+    }
+    var nodeTo = {}; //assume that we are truly creating a new "to" node that will branch off the "from" node.
+    if (toNodeExisting){
+      //there is an existing node in this map that matches the node we're trying to create off of our "from" node
+      //in this scenario, we're asking to connect the "from" node to an existing node in the map. this is expressed
+      //by the addition of a connection (we don't create a new "to" node).
+      nodeTo = toNodeExisting;
+    }else{
+      this.mergeFormData(nodeTo, args.to);
+    }
+    var newNodes = this.cleanNodes(JSON.parse(JSON.stringify(prevState.nodes)));
+    var newConnections = this.cleanConnections(JSON.parse(JSON.stringify(prevState.connections)));
+    if (!toNodeExisting){
+      newNodes.push(nodeTo);
+    }
+    newConnections.push(this.cleanConnection(args.connection));
+    var newEdits = JSON.parse(JSON.stringify(prevState.edits));
+    newEdits.push(args);
+    return { nodes: newNodes, connections: newConnections, edits: newEdits, editDialog: false, lastEdit: new Date().getTime() };
+  }
+
+  handleDelete(args){
+    this.setState((prevState) => {
+      return this.applyDelete(args, prevState);
+    });
+  }
+
+  applyDelete(args, prevState){
+    //delete an existing node
+    var nodeFrom = {};
+    this.mergeFormData(nodeFrom, args.from);
+    var nodesCopy = this.cleanNodes(JSON.parse(JSON.stringify(prevState.nodes)));
+    var newNodes = [];
+    nodesCopy.forEach(function(node){
+      if (args.from.text != node.text){
+        newNodes.push(node);
+      }
+    }.bind(this));
+    var connsCopy = this.cleanConnections(JSON.parse(JSON.stringify(prevState.connections)));
+    var newConnections = [];
+    connsCopy.forEach(function(conn){
+      if (conn.source != args.from.text && conn.target != args.from.text){
+        newConnections.push(conn);
+      }
+    }.bind(this));
+    var newEdits = JSON.parse(JSON.stringify(prevState.edits));
+    newEdits.push(args);
+    return { nodes: newNodes, connections: newConnections, edits: newEdits, editDialog: false, lastEdit: new Date().getTime() };
   }
 
   handleSelect(args){
@@ -158,24 +210,89 @@ export class MindMapEditContainer extends React.Component {
     this.setState({ editDialog: false });
   }
 
+  handleNodesDrawn(drawnNodes){
+    const ensureXY = (node) => {
+      if (!node.fx || !node.fy){
+        var drawnNode = this.getDrawnNode(node.text, drawnNodes);
+        if (drawnNode){
+          node.fx = drawnNode.fx || drawnNode.x;
+          node.fy = drawnNode.fy || drawnNode.y;
+        }
+      }
+    };
+    this.state.edits.forEach( (edit) => {
+      ensureXY(edit.from);
+      ensureXY(edit.to);
+    });
+  }
+
+  getDrawnNode(text, nodes){
+    var n = null;
+    if (text && nodes) {
+      nodes.each((node) => {
+        if (node.text === text) {
+          n = node;
+        }
+      });
+    }
+    return n;
+  }
+
   mergeFormData(node, formData){
     node.text = formData.text;
     node.url = formData.url;
     node.note = formData.note;
     node.category = formData.category;
+    node.fx = (node.fx || node.x) || formData.fx;
+    node.fy = (node.fy || node.y) || formData.fy;
     node.nodes = [];
-    for(var i = 0; i < formData.related.length; i++){
-      var subnode = formData.related[i];
-      node.nodes.push({
-        text: subnode.text,
-        url: subnode.url,
-        note: subnode.note,
-        category: subnode.category,
-        // fx: null,
-        // fy: null,
-        nodes: []
-      });
+    if (formData.related){
+      for(var i = 0; i < formData.related.length; i++){
+        var subnode = formData.related[i];
+        node.nodes.push({
+          text: subnode.text,
+          url: subnode.url,
+          note: subnode.note,
+          category: subnode.category,
+          nodes: []
+        });
+      }
     }
+  }
+
+  flattenMapEdits(mapEdits){
+    var flatState = {
+      nodes: mapEdits.base.nodes || [],
+      connections: mapEdits.base.connections || [],
+      edits: []
+    };
+    if (mapEdits.patches && mapEdits.patches.length > 0){
+      for(var editKey in mapEdits.patches){
+        var edit = mapEdits.patches[editKey];
+        var newState;
+        switch(edit.action){
+          case 'add':
+            newState = this.applyAdd(edit, flatState);
+            break;
+          case 'update':
+            newState = this.applyUpdate(edit, flatState);
+            break;
+          case 'delete':
+            newState = this.applyDelete(edit, flatState);
+            break;
+        }
+        if (newState){
+          flatState = newState;
+        }
+      }
+    }else{
+      flatState.nodes = this.cleanNodes(JSON.parse(JSON.stringify(flatState.nodes)));
+      flatState.connections = this.cleanConnections(JSON.parse(JSON.stringify(flatState.connections)));
+    }
+    var composite = JSON.parse(JSON.stringify(mapEdits.base));
+    composite.nodes = flatState.nodes;
+    composite.connections = flatState.connections;
+    return composite;
   }
 
   render() {
@@ -183,7 +300,7 @@ export class MindMapEditContainer extends React.Component {
       connections={this.state.connections}
       nodes={this.state.nodes}
       subnodes={this.state.subnodes}
-      editable={this.state.editable}
+      editable={true}
       editDialog={this.state.editDialog}
       lastEdit={this.state.lastEdit}
       onUpdate={this.handleUpdate.bind(this)}
@@ -191,11 +308,12 @@ export class MindMapEditContainer extends React.Component {
       onDelete={this.handleDelete.bind(this)}
       onCancel={this.handleCancel.bind(this)}
       onSelect={this.handleSelect.bind(this)}
+      onNodesDrawn={this.handleNodesDrawn.bind(this)}
     />
   }
 }
 
-export default class MindMap extends Component {
+export class MindMap extends Component {
   constructor(props) {
     super(props);
 
@@ -369,15 +487,24 @@ export default class MindMap extends Component {
     this.props.onCancel();
   }
 
+  deleteActive(){
+    const from = JSON.parse(this.state.editor.formDataOrig);
+    this.props.onDelete &&
+    this.props.onDelete({
+      action: 'delete',
+      from: from
+    });
+  }
+
   addNew(){
     var newTopic = prompt("What is the new topic name? A good topic should be described in one or two words.");
     if (newTopic && newTopic.trim()) {
 
       /*
-       when you add a new node, you are peforming an edit that produces a new node and a connection.
+       when you add a new node, you are performing an edit that produces a new node and a connection.
 
        we must record the selected node (this will be the parent)
-       then we need to create a new blank node and add it to the
+       then we need to create a new blank node and connect it to the parent
        */
       const conn = { source: this.state.editor.formData.text, target: newTopic, curve: {} };
       const from = JSON.parse(this.state.editor.formDataOrig);
@@ -396,10 +523,6 @@ export default class MindMap extends Component {
         connection: conn
       });
     }
-  }
-
-  deleteSelected(){
-    console.log('TODO');
   }
 
   getFormData(node){
@@ -422,6 +545,8 @@ export default class MindMap extends Component {
       url: node.url,
       note: node.note,
       category: node.category || undefined,
+      fx: node.fx || node.x,
+      fy: node.fy || node.y,
       related: getRelated(node.nodes)
     };
   }
@@ -484,21 +609,20 @@ export default class MindMap extends Component {
       this.prepareEditor(svg, connections, nodes, subnodes);
     }
 
+    // Tick the simulation 100 times.
+    for (let i = 0; i < 100; i += 1) {
+      this.state.simulation.tick();
+    }
+    onTick(connections, nodes, subnodes);
+
+    // nodes are drawn, if we need to do something immediately after draw, do it now:
+    this.props.onNodesDrawn &&
+    this.props.onNodesDrawn(nodes);
 
     // Add pan and zoom behavior and remove double click to zoom.
-    if (!this.state.lastEdit || this.props.lastEdit != this.state.lastEdit){
-
-      // Tick the simulation 100 times.
-      for (let i = 0; i < 100; i += 1) {
-        this.state.simulation.tick();
-      }
-      onTick(connections, nodes, subnodes);
-
-      svg.attr('viewBox', getViewBox(nodes.data()))
-        .call(d3PanZoom(svg))
-        .on('dblclick.zoom', null);
-      this.state.lastEdit = this.props.lastEdit || new Date().getTime();
-    }
+    svg.attr('viewBox', getViewBox(nodes.data()))
+      .call(d3PanZoom(svg))
+      .on('dblclick.zoom', null);
 
     if (this.wrapper){
       this.wrapper.scrollTop = 0;
@@ -523,16 +647,19 @@ export default class MindMap extends Component {
         {this.props.editDialog &&
         <div className="mindmap-wrap" ref={(el) => { this.wrapper = el; }}>
           <div>
-            <button type="button" onClick={this.addNew.bind(this)}>New Subtopic</button>
+            <button type="button" className="btn btn-primary btn-xs pull-right" onClick={this.addNew.bind(this)}>New Subtopic</button>
             {/*<button type="button" onClick={this.deleteSelected.bind(this)}>Delete this Topic</button>*/}
           </div>
           <Form schema={this.state.editor.schema} uiSchema={this.state.editor.uiSchema} formData={this.state.editor.formData}
                 onSubmit={this.onUpdate.bind(this)}>
             <div>
-              <button type="submit">Submit</button>
-              <button type="button" onClick={this.onCancel.bind(this)}>Cancel</button>
+              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="button" className="btn btn-default" onClick={this.onCancel.bind(this)}>Cancel</button>
             </div>
           </Form>
+          <div>
+            <button type="button" className="btn btn-primary btn-xs pull-right danger" onClick={this.deleteActive.bind(this)}>Delete this topic</button>
+          </div>
         </div>
         }
       </div>

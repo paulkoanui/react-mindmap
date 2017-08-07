@@ -1,3 +1,1 @@
-import MindMap from './MindMap.jsx';
-
-export default MindMap;
+module.exports = require('./MindMap.jsx');
