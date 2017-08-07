@@ -55,17 +55,20 @@ export const d3Nodes = (svg, nodes) => {
  * Callback for forceSimulation tick event.
  */
 export const onTick = (conns, nodes, subnodes) => {
-  const d = conn => [
-    'M',
-    conn.source.x,
-    conn.source.y,
-    'Q',
-    conn.source.x + (conn.curve.x || 0),
-    conn.source.y + (conn.curve.y || 0),
-    ',',
-    conn.target.x,
-    conn.target.y,
-  ].join(' ');
+  const d = (conn) => {
+    conn.curve = conn.curve || {};
+    return [
+      'M',
+      conn.source.x,
+      conn.source.y,
+      'Q',
+      conn.source.x + (conn.curve.x || 0),
+      conn.source.y + (conn.curve.y || 0),
+      ',',
+      conn.target.x,
+      conn.target.y,
+    ].join(' ');
+  };
 
   // Set the connections path.
   conns.attr('d', d);
@@ -74,6 +77,12 @@ export const onTick = (conns, nodes, subnodes) => {
   nodes
     .attr('x', node => node.x - (node.width / 2))
     .attr('y', node => node.y - (node.height / 2));
+
+  // Make sure all nodes have an fx/fy value (to prevent jitter movement of nodes)
+  nodes.each((node) => {
+    node.fx = node.fx || node.x;
+    node.fy = node.fy || node.y;
+  });
 
   // Set subnodes groups color and position.
   subnodes
@@ -86,23 +95,22 @@ export const onTick = (conns, nodes, subnodes) => {
  * Return drag behavior to use on d3.selection.call().
  */
 export const d3Drag = (simulation, svg, nodes) => {
-  for(let i in nodes){
-    var node = nodes[i];
-    node.fx = node.fx || node.x;
-    node.fy = node.fy || node.y;
-  }
+  Object.getOwnPropertyNames(nodes).forEach((i) => {
+    const node = nodes[i];
+    node.fx = node.x || node.fx;
+    node.fy = node.y || node.fy;
+  });
   const dragStart = (node) => {
     if (!event.active) {
       simulation.alphaTarget(0.2).restart();
     }
-
-    node.fx = node.x;
-    node.fy = node.y;
+    node.fx = node.x || node.fx;
+    node.fy = node.y || node.fy;
   };
 
   const dragged = (node) => {
-    node.fx = event.x;
-    node.fy = event.y;
+    node.fx = event.x || event.fx;
+    node.fy = event.y || event.fy;
   };
 
   const dragEnd = () => {
