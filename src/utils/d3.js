@@ -80,8 +80,8 @@ export const onTick = (conns, nodes, subnodes) => {
 
   // Make sure all nodes have an fx/fy value (to prevent jitter movement of nodes)
   nodes.each((node) => {
-    node.fx = node.fx || node.x;
-    node.fy = node.fy || node.y;
+    node.fx = (node.fx || node.x) || 0;
+    node.fy = (node.fy || node.y) || 0;
   });
 
   // Set subnodes groups color and position.

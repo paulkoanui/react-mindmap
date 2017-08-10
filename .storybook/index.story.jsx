@@ -25,6 +25,8 @@ const render = (path, editable) => {
 };
 
 storiesOf('examples', module)
+  .add('bnf', () => render('sample1.json', false))
+  .add('no-xy', () => render('no-xy.json', false))
   .add('devops-readonly', () => render('programming/devops.json', false))
   .add('devops-edit', () => render('programming/devops.json', true))
   .add('interviews-readonly', () => render('programming/programming-interviews.json', false))

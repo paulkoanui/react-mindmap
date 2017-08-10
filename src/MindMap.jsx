@@ -23,6 +23,7 @@ import subnodesToHTML from './utils/subnodesToHTML';
 import nodeToHTML from './utils/nodeToHTML';
 import '../sass/main.sass';
 
+/* eslint-disable */
 export class MindMapEditContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -348,22 +349,23 @@ export class MindMap extends Component {
               "",
               "mindmap",
               "wiki",
-              "stack exchange",
+              "article",
+              "blog",
+              "audio",
+              "video",
+              "youtube",
+              "forum",
+              "reddit",
               "course",
               "free book",
               "non-free book",
+              "playlist",
               "paper",
-              "video",
-              "article",
-              "blog",
-              "github",
               "interactive",
               "image",
               "podcast",
               "newsletter",
               "chat",
-              "youtube",
-              "reddit",
               "quora"
             ]
           },
@@ -395,22 +397,23 @@ export class MindMap extends Component {
                     "",
                     "mindmap",
                     "wiki",
-                    "stack exchange",
+                    "article",
+                    "blog",
+                    "audio",
+                    "video",
+                    "youtube",
+                    "forum",
+                    "reddit",
                     "course",
                     "free book",
                     "non-free book",
+                    "playlist",
                     "paper",
-                    "video",
-                    "article",
-                    "blog",
-                    "github",
                     "interactive",
                     "image",
                     "podcast",
                     "newsletter",
                     "chat",
-                    "youtube",
-                    "reddit",
                     "quora"
                   ]
                 },
@@ -632,6 +635,7 @@ export class MindMap extends Component {
 
   componentDidMount() {
     this.renderMap();
+    // this.renderMap();
   }
 
   componentDidUpdate() {
@@ -643,25 +647,28 @@ export class MindMap extends Component {
   render() {
     return (
       <div>
-        <svg className="mindmap-svg" ref="mountPoint" />
-        {this.props.editDialog &&
-        <div className="mindmap-wrap" ref={(el) => { this.wrapper = el; }}>
-          <div>
-            <button type="button" className="btn btn-primary btn-xs pull-right" onClick={this.addNew.bind(this)}>New Subtopic</button>
-            {/*<button type="button" onClick={this.deleteSelected.bind(this)}>Delete this Topic</button>*/}
-          </div>
-          <Form schema={this.state.editor.schema} uiSchema={this.state.editor.uiSchema} formData={this.state.editor.formData}
-                onSubmit={this.onUpdate.bind(this)}>
+        <div>
+          {this.props.editDialog &&
+          <div className="mindmap-wrap" ref={(el) => { this.wrapper = el; }}>
             <div>
-              <button type="submit" className="btn btn-primary">Submit</button>
-              <button type="button" className="btn btn-default" onClick={this.onCancel.bind(this)}>Cancel</button>
+              <button type="button" className="btn btn-primary btn-xs pull-right" onClick={this.addNew.bind(this)}>New Subtopic</button>
             </div>
-          </Form>
-          <div>
-            <button type="button" className="btn btn-primary btn-xs pull-right danger" onClick={this.deleteActive.bind(this)}>Delete this topic</button>
+            <Form schema={this.state.editor.schema} uiSchema={this.state.editor.uiSchema} formData={this.state.editor.formData}
+                  onSubmit={this.onUpdate.bind(this)}>
+              <div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="button" className="btn btn-default" onClick={this.onCancel.bind(this)}>Cancel</button>
+              </div>
+            </Form>
+            <div>
+              <button type="button" className="btn btn-primary btn-xs pull-right danger" onClick={this.deleteActive.bind(this)}>Delete this topic</button>
+            </div>
           </div>
+          }
         </div>
-        }
+        <div>
+          <svg className="mindmap-svg" ref="mountPoint" />
+        </div>
       </div>
     );
   }
