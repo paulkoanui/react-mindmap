@@ -25,8 +25,6 @@ const render = (path, editable) => {
 };
 
 storiesOf('examples', module)
-  .add('bnf', () => render('sample1.json', false))
-  .add('no-xy', () => render('no-xy.json', false))
   .add('devops-readonly', () => render('programming/devops.json', false))
   .add('devops-edit', () => render('programming/devops.json', true))
   .add('interviews-readonly', () => render('programming/programming-interviews.json', false))
@@ -34,5 +32,4 @@ storiesOf('examples', module)
   .add('map-readonly', () => render('map.json', false))
   .add('map-edit', () => render('map.json', true))
   .add('python', () => render('python.json', false))
-  .add('python-edit', () => render('python.json', true))
-  .add('render-issue', () => render('render-issue.json', true));
+  .add('python-edit', () => render('python.json', true));
