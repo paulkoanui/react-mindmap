@@ -54,6 +54,7 @@ export class MindMapEditContainer extends React.Component {
       };
       return fullNodes.map((node) => {
         return {
+          id: node.id,
           text: node.text,
           url: node.url,
           note: node.note,
@@ -89,7 +90,9 @@ export class MindMapEditContainer extends React.Component {
     }
     var c = JSON.parse(JSON.stringify(conn.curve || {}));
     return {
+      sourceId: conn.sourceId,
       source: s,
+      targetId: conn.targetId,
       target: t,
       curve: c
     };
@@ -108,7 +111,7 @@ export class MindMapEditContainer extends React.Component {
     var fromNodeIndex = -1;
     var index = 0;
     for (let node of prevState.nodes){
-      if (node.text === args.from.text){
+      if (node.id === args.from.id){
         fromNodeIndex = index;
         break;
       }
@@ -121,13 +124,13 @@ export class MindMapEditContainer extends React.Component {
       var newNodes = this.cleanNodes(JSON.parse(JSON.stringify(prevState.nodes)));
       newNodes.splice(fromNodeIndex, 1, nodeTo);
       var newConnections = this.cleanConnections(JSON.parse(JSON.stringify(prevState.connections)));
-      if (args.from.text != args.to.text){
+      if (args.from.id != args.to.id){
         newConnections.forEach((conn) => {
-          if (conn.source === args.from.text){
-            conn.source = args.to.text;
+          if (conn.sourceId === args.from.id){
+            conn.sourceId = args.to.id;
           }
-          if (conn.target === args.from.text){
-            conn.target = args.to.text;
+          if (conn.targetId === args.from.id){
+            conn.targetId = args.to.id;
           }
         });
       }
@@ -149,7 +152,7 @@ export class MindMapEditContainer extends React.Component {
     //create a new node OR locate an existing node and add a connection
     var toNodeExisting = null;
     for (let node of prevState.nodes){
-      if (node.text === args.to.text){
+      if (node.id === args.to.id){
         toNodeExisting = node;
         break;
       }
@@ -213,13 +216,13 @@ export class MindMapEditContainer extends React.Component {
 
   handleNodesDrawn(drawnNodes){
     const ensureXY = (node) => {
-      if (!node.fx || !node.fy){
+      //if (!node.fx || !node.fy){
         var drawnNode = this.getDrawnNode(node.text, drawnNodes);
         if (drawnNode){
           node.fx = drawnNode.fx || drawnNode.x;
           node.fy = drawnNode.fy || drawnNode.y;
         }
-      }
+      //}
     };
     this.state.edits.forEach( (edit) => {
       ensureXY(edit.from);
@@ -240,6 +243,7 @@ export class MindMapEditContainer extends React.Component {
   }
 
   mergeFormData(node, formData){
+    node.id = formData.id;
     node.text = formData.text;
     node.url = formData.url;
     node.note = formData.note;
@@ -297,6 +301,37 @@ export class MindMapEditContainer extends React.Component {
   }
 
   render() {
+
+    const handleUpdate =
+      this.state.handlers && this.state.handlers.handleUpdate
+        ? this.state.handlers.handleUpdate
+        :
+        this.props.handlers && this.props.handlers.handleUpdate
+          ? this.props.handlers.handleUpdate
+          : this.handleUpdate
+    const handleAdd =
+      this.state.handlers && this.state.handlers.handleAdd
+        ? this.state.handlers.handleAdd
+        :
+        this.props.handlers && this.props.handlers.handleAdd
+          ? this.props.handlers.handleAdd
+          : this.handleAdd
+    const handleDelete =
+      this.state.handlers && this.state.handlers.handleDelete
+        ? this.state.handlers.handleDelete
+        :
+        this.props.handlers && this.props.handlers.handleDelete
+          ? this.props.handlers.handleDelete
+          : this.handleDelete
+    const handleSelect =
+      this.state.handlers && this.state.handlers.handleSelect
+        ? this.state.handlers.handleSelect
+        :
+        this.props.handlers && this.props.handlers.handleSelect
+          ? this.props.handlers.handleSelect
+          : this.handleSelect
+
+
     return <MindMap
       connections={this.state.connections}
       nodes={this.state.nodes}
@@ -304,11 +339,11 @@ export class MindMapEditContainer extends React.Component {
       editable={true}
       editDialog={this.state.editDialog}
       lastEdit={this.state.lastEdit}
-      onUpdate={this.handleUpdate.bind(this)}
-      onAdd={this.handleAdd.bind(this)}
-      onDelete={this.handleDelete.bind(this)}
+      onUpdate={handleUpdate.bind(this)}
+      onAdd={handleAdd.bind(this)}
+      onDelete={handleDelete.bind(this)}
+      onSelect={handleSelect.bind(this)}
       onCancel={this.handleCancel.bind(this)}
-      onSelect={this.handleSelect.bind(this)}
       onNodesDrawn={this.handleNodesDrawn.bind(this)}
     />
   }
@@ -470,7 +505,12 @@ export class MindMap extends Component {
       node.fy = node.fy || node.y;
     };
 
-    nodes.forEach(node => render(node))
+    if (nodes.forEach){
+      nodes.forEach(node => render(node))
+    }else{
+      var nodeIds = Object.getOwnPropertyNames(nodes);
+      nodeIds.forEach(nodeId => render(nodes[nodeId]))
+    }
   }
 
   onUpdate({formData}){
@@ -509,9 +549,16 @@ export class MindMap extends Component {
        we must record the selected node (this will be the parent)
        then we need to create a new blank node and connect it to the parent
        */
-      const conn = { source: this.state.editor.formData.text, target: newTopic, curve: {} };
+      const conn = {
+        source: this.state.editor.formData.text,
+        sourceId: this.state.editor.formData.id,
+        target: newTopic,
+        targetId: '',
+        curve: {}
+      };
       const from = JSON.parse(this.state.editor.formDataOrig);
       const to = {
+        id: '',
         text: newTopic,
         url: '',
         note: '',
@@ -544,6 +591,8 @@ export class MindMap extends Component {
       }
     };
     return {
+      id: node.id,
+      title: node.title,
       text: node.text,
       url: node.url,
       note: node.note,
@@ -553,6 +602,7 @@ export class MindMap extends Component {
       related: getRelated(node.nodes)
     };
   }
+
   /*
    * Add new class to nodes, attach drag behavior, and start simulation.
    */
@@ -568,9 +618,14 @@ export class MindMap extends Component {
           //build the formData that the user can edit
           var editor = prevState.editor;
           editor.formData = this.getFormData(node);
-          editor.schema.title = `Topic: ${editor.formData.text}`;
+          editor.schema.title = `Topic: ${editor.formData.title}`;
           editor.formDataOrig = JSON.stringify(editor.formData);
-          this.props.onSelect({ editing: true });
+          this.props.onSelect({
+            action: 'select',
+            editing: true,
+            from: JSON.parse(editor.formDataOrig),
+            to: editor.formData
+          });
           return { editor: editor };
         });
       });
@@ -590,6 +645,7 @@ export class MindMap extends Component {
 
     // Clear the SVG in case there's stuff already there.
     svg.selectAll('*').remove();
+    var vb = svg.attr('viewBox');
 
     var connsCopy = this.props.connections;
     var nodesCopy = this.props.nodes;
@@ -623,7 +679,7 @@ export class MindMap extends Component {
     this.props.onNodesDrawn(nodes);
 
     // Add pan and zoom behavior and remove double click to zoom.
-    svg.attr('viewBox', getViewBox(nodes.data()))
+    svg.attr('viewBox', vb || getViewBox(nodes.data()))
       .call(d3PanZoom(svg))
       .on('dblclick.zoom', null);
 
@@ -676,8 +732,8 @@ export class MindMap extends Component {
 
 
 MindMap.defaultProps = {
-  nodes: [],
-  connections: [],
+  nodes: {},
+  connections: {},
   editable: false,
 };
 

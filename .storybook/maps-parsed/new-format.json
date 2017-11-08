@@ -1,0 +1,390 @@
+{
+  "connections" : {
+    "-KyCI-lg9NT35bZwd9r2" : {
+      "id" : "-KyCI-lg9NT35bZwd9r2",
+      "source" : "-KyCI-ldElzY-p-ojWIa",
+      "target" : "-KyCI-ldElzY-p-ojWIf"
+    },
+    "-KyCI-lhMrYMvvKhKryq" : {
+      "id" : "-KyCI-lhMrYMvvKhKryq",
+      "source" : "-KyCI-ldElzY-p-ojWIa",
+      "target" : "-KyCI-le2L-QDmnOG3e7"
+    },
+    "-KyCI-lhMrYMvvKhKryr" : {
+      "id" : "-KyCI-lhMrYMvvKhKryr",
+      "source" : "-KyCI-ldElzY-p-ojWI_",
+      "target" : "-KyCI-le2L-QDmnOG3e8"
+    },
+    "-KyCI-lhMrYMvvKhKrys" : {
+      "id" : "-KyCI-lhMrYMvvKhKrys",
+      "source" : "-KyCI-ldElzY-p-ojWI_",
+      "target" : "-KyCI-le2L-QDmnOG3e9"
+    },
+    "-KyCI-lhMrYMvvKhKryt" : {
+      "id" : "-KyCI-lhMrYMvvKhKryt",
+      "source" : "-KyCI-ldElzY-p-ojWIb",
+      "target" : "-KyCI-le2L-QDmnOG3eA"
+    },
+    "-KyCI-lhMrYMvvKhKryu" : {
+      "id" : "-KyCI-lhMrYMvvKhKryu",
+      "source" : "-KyCI-ldElzY-p-ojWIb",
+      "target" : "-KyCI-le2L-QDmnOG3eB"
+    },
+    "-KyCI-lhMrYMvvKhKryv" : {
+      "id" : "-KyCI-lhMrYMvvKhKryv",
+      "source" : "-KyCI-ldElzY-p-ojWIb",
+      "target" : "-KyCI-le2L-QDmnOG3eC"
+    },
+    "-KyCI-lhMrYMvvKhKryw" : {
+      "id" : "-KyCI-lhMrYMvvKhKryw",
+      "source" : "-KyCI-ldElzY-p-ojWIb",
+      "target" : "-KyCI-le2L-QDmnOG3eD"
+    },
+    "-KyCI-lhMrYMvvKhKryx" : {
+      "id" : "-KyCI-lhMrYMvvKhKryx",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-le2L-QDmnOG3eE"
+    },
+    "-KyCI-lhMrYMvvKhKryy" : {
+      "id" : "-KyCI-lhMrYMvvKhKryy",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-le2L-QDmnOG3eF"
+    },
+    "-KyCI-lhMrYMvvKhKryz" : {
+      "id" : "-KyCI-lhMrYMvvKhKryz",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-le2L-QDmnOG3eG"
+    },
+    "-KyCI-lhMrYMvvKhKrz-" : {
+      "id" : "-KyCI-lhMrYMvvKhKrz-",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-lfTKbT80Pj0RWR"
+    },
+    "-KyCI-lhMrYMvvKhKrz0" : {
+      "id" : "-KyCI-lhMrYMvvKhKrz0",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-lfTKbT80Pj0RWS"
+    },
+    "-KyCI-libu0RUwhLuCkH" : {
+      "id" : "-KyCI-libu0RUwhLuCkH",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-lfTKbT80Pj0RWT"
+    },
+    "-KyCI-libu0RUwhLuCkI" : {
+      "id" : "-KyCI-libu0RUwhLuCkI",
+      "source" : "-KyCI-ldElzY-p-ojWIc",
+      "target" : "-KyCI-lfTKbT80Pj0RWU"
+    },
+    "-KyCI-ljgeB_ncu2XB5z" : {
+      "id" : "-KyCI-ljgeB_ncu2XB5z",
+      "source" : "-KyCI-ldElzY-p-ojWIc",
+      "target" : "-KyCI-lfTKbT80Pj0RWV"
+    },
+    "-KyCI-ljgeB_ncu2XB6-" : {
+      "id" : "-KyCI-ljgeB_ncu2XB6-",
+      "source" : "-KyCI-ldElzY-p-ojWIc",
+      "target" : "-KyCI-lfTKbT80Pj0RWW"
+    },
+    "-KyCI-ljgeB_ncu2XB60" : {
+      "id" : "-KyCI-ljgeB_ncu2XB60",
+      "source" : "-KyCI-ldElzY-p-ojWId",
+      "target" : "-KyCI-lg9NT35bZwd9qy"
+    },
+    "-KyCI-ljgeB_ncu2XB61" : {
+      "id" : "-KyCI-ljgeB_ncu2XB61",
+      "source" : "-KyCI-ldElzY-p-ojWId",
+      "target" : "-KyCI-lg9NT35bZwd9qz"
+    },
+    "-KyCI-ljgeB_ncu2XB62" : {
+      "id" : "-KyCI-ljgeB_ncu2XB62",
+      "source" : "-KyCI-ldElzY-p-ojWIc",
+      "target" : "-KyCI-lg9NT35bZwd9r-"
+    },
+    "-KyCI-ljgeB_ncu2XB63" : {
+      "id" : "-KyCI-ljgeB_ncu2XB63",
+      "source" : "-KyCI-ldElzY-p-ojWId",
+      "target" : "-KyCI-lg9NT35bZwd9r0"
+    },
+    "-KyCI-ljgeB_ncu2XB64" : {
+      "id" : "-KyCI-ljgeB_ncu2XB64",
+      "source" : "-KyCI-ldElzY-p-ojWId",
+      "target" : "-KyCI-lg9NT35bZwd9r0"
+    },
+    "-KyCI-ljgeB_ncu2XB65" : {
+      "id" : "-KyCI-ljgeB_ncu2XB65",
+      "source" : "-KyCI-ldElzY-p-ojWIe",
+      "target" : "-KyCI-lg9NT35bZwd9r1"
+    }
+  },
+  "id" : "-KyCI-lbonT7xXXU8av6",
+  "nodes" : {
+    "-KyCI-ldElzY-p-ojWI_" : {
+      "category" : "mindmap",
+      "fx" : -751.5153431205113,
+      "fy" : -1026.443687824679,
+      "id" : "-KyCI-ldElzY-p-ojWI_",
+      "note" : "This node organizes topics specific to the www.banjoandfiddle.com website.",
+      "text" : "-KyCI-ldElzY-p-ojWI_",
+      "title" : "banjo and fiddle community  ️",
+      "url" : "/explore/#/bnf-community"
+    },
+    "-KyCI-ldElzY-p-ojWIa" : {
+      "category" : "mindmap",
+      "fx" : -372.8586731294613,
+      "fy" : -1690.2838558770914,
+      "id" : "-KyCI-ldElzY-p-ojWIa",
+      "text" : "-KyCI-ldElzY-p-ojWIa",
+      "title" : "instruments",
+      "url" : "/explore/#/instruments/"
+    },
+    "-KyCI-ldElzY-p-ojWIb" : {
+      "fx" : -808.4830962324556,
+      "fy" : -1352.1174246188814,
+      "id" : "-KyCI-ldElzY-p-ojWIb",
+      "text" : "-KyCI-ldElzY-p-ojWIb",
+      "title" : "people  ️"
+    },
+    "-KyCI-ldElzY-p-ojWIc" : {
+      "fx" : 107.48971717636505,
+      "fy" : -1545.3273014304914,
+      "id" : "-KyCI-ldElzY-p-ojWIc",
+      "text" : "-KyCI-ldElzY-p-ojWIc",
+      "title" : "events  ️"
+    },
+    "-KyCI-ldElzY-p-ojWId" : {
+      "fx" : -451.0770035465207,
+      "fy" : -1314.9397632970217,
+      "id" : "-KyCI-ldElzY-p-ojWId",
+      "text" : "-KyCI-ldElzY-p-ojWId",
+      "title" : "learn  ️"
+    },
+    "-KyCI-ldElzY-p-ojWIe" : {
+      "fx" : 77.55049774242065,
+      "fy" : -1133.0627457869418,
+      "id" : "-KyCI-ldElzY-p-ojWIe",
+      "text" : "-KyCI-ldElzY-p-ojWIe",
+      "title" : "business  ️"
+    },
+    "-KyCI-ldElzY-p-ojWIf" : {
+      "category" : "mindmap",
+      "fx" : -473.6777198587524,
+      "fy" : -1518.793471695529,
+      "id" : "-KyCI-ldElzY-p-ojWIf",
+      "note" : "",
+      "text" : "-KyCI-ldElzY-p-ojWIf",
+      "title" : "banjo",
+      "url" : "/explore/#/instruments/banjo"
+    },
+    "-KyCI-le2L-QDmnOG3e7" : {
+      "category" : "mindmap",
+      "fx" : -233.0644160583791,
+      "fy" : -1542.8817982315018,
+      "id" : "-KyCI-le2L-QDmnOG3e7",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3e7",
+      "title" : "fiddle",
+      "url" : "/explore/#/instruments/fiddle"
+    },
+    "-KyCI-le2L-QDmnOG3e8" : {
+      "category" : "blog",
+      "fx" : -906.0861544664476,
+      "fy" : -910.4397551824486,
+      "id" : "-KyCI-le2L-QDmnOG3e8",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3e8",
+      "title" : "about bnf community",
+      "url" : "/a/"
+    },
+    "-KyCI-le2L-QDmnOG3e9" : {
+      "fx" : -541.9195248624017,
+      "fy" : -909.9409137803359,
+      "id" : "-KyCI-le2L-QDmnOG3e9",
+      "note" : "Public directory of Banjo & Fiddle Community members",
+      "text" : "-KyCI-le2L-QDmnOG3e9",
+      "title" : "bnf community members",
+      "url" : "/directory/"
+    },
+    "-KyCI-le2L-QDmnOG3eA" : {
+      "category" : "mindmap",
+      "fx" : -915.7242007349919,
+      "fy" : -1515.1369119420392,
+      "id" : "-KyCI-le2L-QDmnOG3eA",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eA",
+      "title" : "builders",
+      "url" : "/explore/#/people/builders"
+    },
+    "-KyCI-le2L-QDmnOG3eB" : {
+      "category" : "mindmap",
+      "fx" : -1002.6581051824645,
+      "fy" : -1335.1951301050026,
+      "id" : "-KyCI-le2L-QDmnOG3eB",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eB",
+      "title" : "teachers",
+      "url" : "/explore/#/people/teachers"
+    },
+    "-KyCI-le2L-QDmnOG3eC" : {
+      "category" : "mindmap",
+      "fx" : -715.9097884856816,
+      "fy" : -1520.267559079825,
+      "id" : "-KyCI-le2L-QDmnOG3eC",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eC",
+      "title" : "musicologists",
+      "url" : "/explore/#/people/musicologists"
+    },
+    "-KyCI-le2L-QDmnOG3eD" : {
+      "category" : "mindmap",
+      "fx" : -879.9162981113077,
+      "fy" : -1174.316076007125,
+      "id" : "-KyCI-le2L-QDmnOG3eD",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eD",
+      "title" : "collectors",
+      "url" : "/explore/#/people/collectors"
+    },
+    "-KyCI-le2L-QDmnOG3eE" : {
+      "category" : "mindmap",
+      "fx" : 382.81951579171255,
+      "fy" : -1097.6860298396841,
+      "id" : "-KyCI-le2L-QDmnOG3eE",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eE",
+      "title" : "live sound",
+      "url" : "/explore/#/business/live-sound"
+    },
+    "-KyCI-le2L-QDmnOG3eF" : {
+      "category" : "mindmap",
+      "fx" : 110.23474235735762,
+      "fy" : -1282.4671045708674,
+      "id" : "-KyCI-le2L-QDmnOG3eF",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eF",
+      "title" : "production",
+      "url" : "/explore/#/business/production"
+    },
+    "-KyCI-le2L-QDmnOG3eG" : {
+      "category" : "mindmap",
+      "fx" : 323.777955766212,
+      "fy" : -1246.7480987231763,
+      "id" : "-KyCI-le2L-QDmnOG3eG",
+      "note" : "",
+      "text" : "-KyCI-le2L-QDmnOG3eG",
+      "title" : "booking",
+      "url" : "/explore/#/business/booking"
+    },
+    "-KyCI-lfTKbT80Pj0RWR" : {
+      "category" : "mindmap",
+      "fx" : -209.74898983732382,
+      "fy" : -1221.7975079980417,
+      "id" : "-KyCI-lfTKbT80Pj0RWR",
+      "note" : "",
+      "text" : "-KyCI-lfTKbT80Pj0RWR",
+      "title" : "management",
+      "url" : "/explore/#/business/management"
+    },
+    "-KyCI-lfTKbT80Pj0RWS" : {
+      "category" : "mindmap",
+      "fx" : 238.70506788470436,
+      "fy" : -980.877684719247,
+      "id" : "-KyCI-lfTKbT80Pj0RWS",
+      "note" : "",
+      "text" : "-KyCI-lfTKbT80Pj0RWS",
+      "title" : "recording",
+      "url" : "/explore/#/business/recording"
+    },
+    "-KyCI-lfTKbT80Pj0RWT" : {
+      "category" : "mindmap",
+      "fx" : -164.8224491863338,
+      "fy" : -1066.2215410053047,
+      "id" : "-KyCI-lfTKbT80Pj0RWT",
+      "note" : "",
+      "text" : "-KyCI-lfTKbT80Pj0RWT",
+      "title" : "promotion",
+      "url" : "/explore/#/business/promotion"
+    },
+    "-KyCI-lfTKbT80Pj0RWU" : {
+      "category" : "mindmap",
+      "fx" : -57.09086103648838,
+      "fy" : -1395.1044894889433,
+      "id" : "-KyCI-lfTKbT80Pj0RWU",
+      "note" : "",
+      "text" : "-KyCI-lfTKbT80Pj0RWU",
+      "title" : "conventions",
+      "url" : "/explore/#/events/conventions/"
+    },
+    "-KyCI-lfTKbT80Pj0RWV" : {
+      "category" : "mindmap",
+      "fx" : -49.38683553575095,
+      "fy" : -1642.4883757889531,
+      "id" : "-KyCI-lfTKbT80Pj0RWV",
+      "note" : "",
+      "text" : "-KyCI-lfTKbT80Pj0RWV",
+      "title" : "festivals",
+      "url" : "/explore/#/events/festivals"
+    },
+    "-KyCI-lfTKbT80Pj0RWW" : {
+      "category" : "mindmap",
+      "fx" : 306.94198533218173,
+      "fy" : -1433.26504387743,
+      "id" : "-KyCI-lfTKbT80Pj0RWW",
+      "note" : "",
+      "text" : "-KyCI-lfTKbT80Pj0RWW",
+      "title" : "workshops",
+      "url" : "/explore/#/events/workshops/"
+    },
+    "-KyCI-lg9NT35bZwd9qy" : {
+      "category" : "mindmap",
+      "fx" : -580.5055533169593,
+      "fy" : -1205.3992887963182,
+      "id" : "-KyCI-lg9NT35bZwd9qy",
+      "note" : "",
+      "text" : "-KyCI-lg9NT35bZwd9qy",
+      "title" : "jam sessions",
+      "url" : "/explore/#/learn/jam-sessions"
+    },
+    "-KyCI-lg9NT35bZwd9qz" : {
+      "category" : "mindmap",
+      "fx" : -613.980913398921,
+      "fy" : -1404.3413280487434,
+      "id" : "-KyCI-lg9NT35bZwd9qz",
+      "note" : "",
+      "text" : "-KyCI-lg9NT35bZwd9qz",
+      "title" : "songs",
+      "url" : "/explore/#/learn/songs/"
+    },
+    "-KyCI-lg9NT35bZwd9r-" : {
+      "category" : "mindmap",
+      "fx" : 271.32547632092053,
+      "fy" : -1631.947317651343,
+      "id" : "-KyCI-lg9NT35bZwd9r-",
+      "note" : "",
+      "text" : "-KyCI-lg9NT35bZwd9r-",
+      "title" : "contests",
+      "url" : "/explore/#/events/contests"
+    },
+    "-KyCI-lg9NT35bZwd9r0" : {
+      "category" : "mindmap",
+      "fx" : -286.002914089422,
+      "fy" : -1385.5054057798673,
+      "id" : "-KyCI-lg9NT35bZwd9r0",
+      "note" : "",
+      "text" : "-KyCI-lg9NT35bZwd9r0",
+      "title" : "styles",
+      "url" : "/explore/#/learn/styles/"
+    },
+    "-KyCI-lg9NT35bZwd9r1" : {
+      "category" : "mindmap",
+      "fx" : 29.78031227384713,
+      "fy" : -923.9029199905201,
+      "id" : "-KyCI-lg9NT35bZwd9r1",
+      "note" : "",
+      "text" : "-KyCI-lg9NT35bZwd9r1",
+      "title" : "gigging",
+      "url" : "/explore/#/business/gigging"
+    }
+  },
+  "tag" : "anything",
+  "title" : "learn anything"
+}
