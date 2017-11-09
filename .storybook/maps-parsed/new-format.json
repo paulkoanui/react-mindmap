@@ -1,386 +1,386 @@
 {
   "connections" : {
-    "-KyCI-lg9NT35bZwd9r2" : {
-      "id" : "-KyCI-lg9NT35bZwd9r2",
-      "source" : "-KyCI-ldElzY-p-ojWIa",
-      "target" : "-KyCI-ldElzY-p-ojWIf"
+    "-KySOob9BV0WA19NymS0" : {
+      "id" : "-KySOob9BV0WA19NymS0",
+      "source" : "-KySOob52BOUXwB0pOwA",
+      "target" : "-KySOob6XkFk1AZQrjr_"
     },
-    "-KyCI-lhMrYMvvKhKryq" : {
-      "id" : "-KyCI-lhMrYMvvKhKryq",
-      "source" : "-KyCI-ldElzY-p-ojWIa",
-      "target" : "-KyCI-le2L-QDmnOG3e7"
+    "-KySOob9BV0WA19NymS1" : {
+      "id" : "-KySOob9BV0WA19NymS1",
+      "source" : "-KySOob52BOUXwB0pOwA",
+      "target" : "-KySOob6XkFk1AZQrjra"
     },
-    "-KyCI-lhMrYMvvKhKryr" : {
-      "id" : "-KyCI-lhMrYMvvKhKryr",
-      "source" : "-KyCI-ldElzY-p-ojWI_",
-      "target" : "-KyCI-le2L-QDmnOG3e8"
+    "-KySOob9BV0WA19NymS2" : {
+      "id" : "-KySOob9BV0WA19NymS2",
+      "source" : "-KySOob52BOUXwB0pOw9",
+      "target" : "-KySOob6XkFk1AZQrjrb"
     },
-    "-KyCI-lhMrYMvvKhKrys" : {
-      "id" : "-KyCI-lhMrYMvvKhKrys",
-      "source" : "-KyCI-ldElzY-p-ojWI_",
-      "target" : "-KyCI-le2L-QDmnOG3e9"
+    "-KySOobA0yON-vDznLIq" : {
+      "id" : "-KySOobA0yON-vDznLIq",
+      "source" : "-KySOob52BOUXwB0pOw9",
+      "target" : "-KySOob6XkFk1AZQrjrc"
     },
-    "-KyCI-lhMrYMvvKhKryt" : {
-      "id" : "-KyCI-lhMrYMvvKhKryt",
-      "source" : "-KyCI-ldElzY-p-ojWIb",
-      "target" : "-KyCI-le2L-QDmnOG3eA"
+    "-KySOobA0yON-vDznLIr" : {
+      "id" : "-KySOobA0yON-vDznLIr",
+      "source" : "-KySOob52BOUXwB0pOwB",
+      "target" : "-KySOob6XkFk1AZQrjrd"
     },
-    "-KyCI-lhMrYMvvKhKryu" : {
-      "id" : "-KyCI-lhMrYMvvKhKryu",
-      "source" : "-KyCI-ldElzY-p-ojWIb",
-      "target" : "-KyCI-le2L-QDmnOG3eB"
+    "-KySOobA0yON-vDznLIs" : {
+      "id" : "-KySOobA0yON-vDznLIs",
+      "source" : "-KySOob52BOUXwB0pOwB",
+      "target" : "-KySOob6XkFk1AZQrjre"
     },
-    "-KyCI-lhMrYMvvKhKryv" : {
-      "id" : "-KyCI-lhMrYMvvKhKryv",
-      "source" : "-KyCI-ldElzY-p-ojWIb",
-      "target" : "-KyCI-le2L-QDmnOG3eC"
+    "-KySOobA0yON-vDznLIt" : {
+      "id" : "-KySOobA0yON-vDznLIt",
+      "source" : "-KySOob52BOUXwB0pOwB",
+      "target" : "-KySOob6XkFk1AZQrjrf"
     },
-    "-KyCI-lhMrYMvvKhKryw" : {
-      "id" : "-KyCI-lhMrYMvvKhKryw",
-      "source" : "-KyCI-ldElzY-p-ojWIb",
-      "target" : "-KyCI-le2L-QDmnOG3eD"
+    "-KySOobA0yON-vDznLIu" : {
+      "id" : "-KySOobA0yON-vDznLIu",
+      "source" : "-KySOob52BOUXwB0pOwB",
+      "target" : "-KySOob6XkFk1AZQrjrg"
     },
-    "-KyCI-lhMrYMvvKhKryx" : {
-      "id" : "-KyCI-lhMrYMvvKhKryx",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-le2L-QDmnOG3eE"
+    "-KySOobA0yON-vDznLIv" : {
+      "id" : "-KySOobA0yON-vDznLIv",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob6XkFk1AZQrjrh"
     },
-    "-KyCI-lhMrYMvvKhKryy" : {
-      "id" : "-KyCI-lhMrYMvvKhKryy",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-le2L-QDmnOG3eF"
+    "-KySOobA0yON-vDznLIw" : {
+      "id" : "-KySOobA0yON-vDznLIw",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob6XkFk1AZQrjri"
     },
-    "-KyCI-lhMrYMvvKhKryz" : {
-      "id" : "-KyCI-lhMrYMvvKhKryz",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-le2L-QDmnOG3eG"
+    "-KySOobA0yON-vDznLIx" : {
+      "id" : "-KySOobA0yON-vDznLIx",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob6XkFk1AZQrjrj"
     },
-    "-KyCI-lhMrYMvvKhKrz-" : {
-      "id" : "-KyCI-lhMrYMvvKhKrz-",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-lfTKbT80Pj0RWR"
+    "-KySOobA0yON-vDznLIy" : {
+      "id" : "-KySOobA0yON-vDznLIy",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob71ZHI7eF4mLwP"
     },
-    "-KyCI-lhMrYMvvKhKrz0" : {
-      "id" : "-KyCI-lhMrYMvvKhKrz0",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-lfTKbT80Pj0RWS"
+    "-KySOobA0yON-vDznLIz" : {
+      "id" : "-KySOobA0yON-vDznLIz",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob71ZHI7eF4mLwQ"
     },
-    "-KyCI-libu0RUwhLuCkH" : {
-      "id" : "-KyCI-libu0RUwhLuCkH",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-lfTKbT80Pj0RWT"
+    "-KySOobBgPuEyMeCvClx" : {
+      "id" : "-KySOobBgPuEyMeCvClx",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob71ZHI7eF4mLwR"
     },
-    "-KyCI-libu0RUwhLuCkI" : {
-      "id" : "-KyCI-libu0RUwhLuCkI",
-      "source" : "-KyCI-ldElzY-p-ojWIc",
-      "target" : "-KyCI-lfTKbT80Pj0RWU"
+    "-KySOobCM5_VwCQ06cmz" : {
+      "id" : "-KySOobCM5_VwCQ06cmz",
+      "source" : "-KySOob52BOUXwB0pOwC",
+      "target" : "-KySOob71ZHI7eF4mLwS"
     },
-    "-KyCI-ljgeB_ncu2XB5z" : {
-      "id" : "-KyCI-ljgeB_ncu2XB5z",
-      "source" : "-KyCI-ldElzY-p-ojWIc",
-      "target" : "-KyCI-lfTKbT80Pj0RWV"
+    "-KySOobEJDSG-_O2vZCe" : {
+      "id" : "-KySOobEJDSG-_O2vZCe",
+      "source" : "-KySOob52BOUXwB0pOwC",
+      "target" : "-KySOob71ZHI7eF4mLwT"
     },
-    "-KyCI-ljgeB_ncu2XB6-" : {
-      "id" : "-KyCI-ljgeB_ncu2XB6-",
-      "source" : "-KyCI-ldElzY-p-ojWIc",
-      "target" : "-KyCI-lfTKbT80Pj0RWW"
+    "-KySOobEJDSG-_O2vZCf" : {
+      "id" : "-KySOobEJDSG-_O2vZCf",
+      "source" : "-KySOob52BOUXwB0pOwC",
+      "target" : "-KySOob71ZHI7eF4mLwU"
     },
-    "-KyCI-ljgeB_ncu2XB60" : {
-      "id" : "-KyCI-ljgeB_ncu2XB60",
-      "source" : "-KyCI-ldElzY-p-ojWId",
-      "target" : "-KyCI-lg9NT35bZwd9qy"
+    "-KySOobEJDSG-_O2vZCg" : {
+      "id" : "-KySOobEJDSG-_O2vZCg",
+      "source" : "-KySOob52BOUXwB0pOwD",
+      "target" : "-KySOob80veNzgAQ-OLe"
     },
-    "-KyCI-ljgeB_ncu2XB61" : {
-      "id" : "-KyCI-ljgeB_ncu2XB61",
-      "source" : "-KyCI-ldElzY-p-ojWId",
-      "target" : "-KyCI-lg9NT35bZwd9qz"
+    "-KySOobFAAhpVDYXDapQ" : {
+      "id" : "-KySOobFAAhpVDYXDapQ",
+      "source" : "-KySOob52BOUXwB0pOwD",
+      "target" : "-KySOob80veNzgAQ-OLf"
     },
-    "-KyCI-ljgeB_ncu2XB62" : {
-      "id" : "-KyCI-ljgeB_ncu2XB62",
-      "source" : "-KyCI-ldElzY-p-ojWIc",
-      "target" : "-KyCI-lg9NT35bZwd9r-"
+    "-KySOobGz1xQsGl7BR0H" : {
+      "id" : "-KySOobGz1xQsGl7BR0H",
+      "source" : "-KySOob52BOUXwB0pOwC",
+      "target" : "-KySOob80veNzgAQ-OLg"
     },
-    "-KyCI-ljgeB_ncu2XB63" : {
-      "id" : "-KyCI-ljgeB_ncu2XB63",
-      "source" : "-KyCI-ldElzY-p-ojWId",
-      "target" : "-KyCI-lg9NT35bZwd9r0"
+    "-KySOobGz1xQsGl7BR0I" : {
+      "id" : "-KySOobGz1xQsGl7BR0I",
+      "source" : "-KySOob52BOUXwB0pOwD",
+      "target" : "-KySOob80veNzgAQ-OLh"
     },
-    "-KyCI-ljgeB_ncu2XB64" : {
-      "id" : "-KyCI-ljgeB_ncu2XB64",
-      "source" : "-KyCI-ldElzY-p-ojWId",
-      "target" : "-KyCI-lg9NT35bZwd9r0"
+    "-KySOobGz1xQsGl7BR0J" : {
+      "id" : "-KySOobGz1xQsGl7BR0J",
+      "source" : "-KySOob52BOUXwB0pOwD",
+      "target" : "-KySOob80veNzgAQ-OLh"
     },
-    "-KyCI-ljgeB_ncu2XB65" : {
-      "id" : "-KyCI-ljgeB_ncu2XB65",
-      "source" : "-KyCI-ldElzY-p-ojWIe",
-      "target" : "-KyCI-lg9NT35bZwd9r1"
+    "-KySOobGz1xQsGl7BR0K" : {
+      "id" : "-KySOobGz1xQsGl7BR0K",
+      "source" : "-KySOob52BOUXwB0pOwE",
+      "target" : "-KySOob9BV0WA19NymS-"
     }
   },
-  "id" : "-KyCI-lbonT7xXXU8av6",
+  "id" : "-KySOob2bqDSRDW0CHsB",
   "nodes" : {
-    "-KyCI-ldElzY-p-ojWI_" : {
+    "-KySOob52BOUXwB0pOw9" : {
       "category" : "mindmap",
       "fx" : -751.5153431205113,
       "fy" : -1026.443687824679,
-      "id" : "-KyCI-ldElzY-p-ojWI_",
+      "id" : "-KySOob52BOUXwB0pOw9",
       "note" : "This node organizes topics specific to the www.banjoandfiddle.com website.",
-      "text" : "-KyCI-ldElzY-p-ojWI_",
+      "text" : "-KySOob52BOUXwB0pOw9",
       "title" : "banjo and fiddle community  ️",
       "url" : "/explore/#/bnf-community"
     },
-    "-KyCI-ldElzY-p-ojWIa" : {
+    "-KySOob52BOUXwB0pOwA" : {
       "category" : "mindmap",
       "fx" : -372.8586731294613,
       "fy" : -1690.2838558770914,
-      "id" : "-KyCI-ldElzY-p-ojWIa",
-      "text" : "-KyCI-ldElzY-p-ojWIa",
+      "id" : "-KySOob52BOUXwB0pOwA",
+      "text" : "-KySOob52BOUXwB0pOwA",
       "title" : "instruments",
       "url" : "/explore/#/instruments/"
     },
-    "-KyCI-ldElzY-p-ojWIb" : {
+    "-KySOob52BOUXwB0pOwB" : {
       "fx" : -808.4830962324556,
       "fy" : -1352.1174246188814,
-      "id" : "-KyCI-ldElzY-p-ojWIb",
-      "text" : "-KyCI-ldElzY-p-ojWIb",
+      "id" : "-KySOob52BOUXwB0pOwB",
+      "text" : "-KySOob52BOUXwB0pOwB",
       "title" : "people  ️"
     },
-    "-KyCI-ldElzY-p-ojWIc" : {
+    "-KySOob52BOUXwB0pOwC" : {
       "fx" : 107.48971717636505,
       "fy" : -1545.3273014304914,
-      "id" : "-KyCI-ldElzY-p-ojWIc",
-      "text" : "-KyCI-ldElzY-p-ojWIc",
+      "id" : "-KySOob52BOUXwB0pOwC",
+      "text" : "-KySOob52BOUXwB0pOwC",
       "title" : "events  ️"
     },
-    "-KyCI-ldElzY-p-ojWId" : {
+    "-KySOob52BOUXwB0pOwD" : {
       "fx" : -451.0770035465207,
       "fy" : -1314.9397632970217,
-      "id" : "-KyCI-ldElzY-p-ojWId",
-      "text" : "-KyCI-ldElzY-p-ojWId",
+      "id" : "-KySOob52BOUXwB0pOwD",
+      "text" : "-KySOob52BOUXwB0pOwD",
       "title" : "learn  ️"
     },
-    "-KyCI-ldElzY-p-ojWIe" : {
+    "-KySOob52BOUXwB0pOwE" : {
       "fx" : 77.55049774242065,
       "fy" : -1133.0627457869418,
-      "id" : "-KyCI-ldElzY-p-ojWIe",
-      "text" : "-KyCI-ldElzY-p-ojWIe",
+      "id" : "-KySOob52BOUXwB0pOwE",
+      "text" : "-KySOob52BOUXwB0pOwE",
       "title" : "business  ️"
     },
-    "-KyCI-ldElzY-p-ojWIf" : {
+    "-KySOob6XkFk1AZQrjr_" : {
       "category" : "mindmap",
       "fx" : -473.6777198587524,
       "fy" : -1518.793471695529,
-      "id" : "-KyCI-ldElzY-p-ojWIf",
+      "id" : "-KySOob6XkFk1AZQrjr_",
       "note" : "",
-      "text" : "-KyCI-ldElzY-p-ojWIf",
+      "text" : "-KySOob6XkFk1AZQrjr_",
       "title" : "banjo",
       "url" : "/explore/#/instruments/banjo"
     },
-    "-KyCI-le2L-QDmnOG3e7" : {
+    "-KySOob6XkFk1AZQrjra" : {
       "category" : "mindmap",
       "fx" : -233.0644160583791,
       "fy" : -1542.8817982315018,
-      "id" : "-KyCI-le2L-QDmnOG3e7",
+      "id" : "-KySOob6XkFk1AZQrjra",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3e7",
+      "text" : "-KySOob6XkFk1AZQrjra",
       "title" : "fiddle",
       "url" : "/explore/#/instruments/fiddle"
     },
-    "-KyCI-le2L-QDmnOG3e8" : {
+    "-KySOob6XkFk1AZQrjrb" : {
       "category" : "blog",
       "fx" : -906.0861544664476,
       "fy" : -910.4397551824486,
-      "id" : "-KyCI-le2L-QDmnOG3e8",
+      "id" : "-KySOob6XkFk1AZQrjrb",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3e8",
+      "text" : "-KySOob6XkFk1AZQrjrb",
       "title" : "about bnf community",
       "url" : "/a/"
     },
-    "-KyCI-le2L-QDmnOG3e9" : {
+    "-KySOob6XkFk1AZQrjrc" : {
       "fx" : -541.9195248624017,
       "fy" : -909.9409137803359,
-      "id" : "-KyCI-le2L-QDmnOG3e9",
+      "id" : "-KySOob6XkFk1AZQrjrc",
       "note" : "Public directory of Banjo & Fiddle Community members",
-      "text" : "-KyCI-le2L-QDmnOG3e9",
+      "text" : "-KySOob6XkFk1AZQrjrc",
       "title" : "bnf community members",
       "url" : "/directory/"
     },
-    "-KyCI-le2L-QDmnOG3eA" : {
+    "-KySOob6XkFk1AZQrjrd" : {
       "category" : "mindmap",
       "fx" : -915.7242007349919,
       "fy" : -1515.1369119420392,
-      "id" : "-KyCI-le2L-QDmnOG3eA",
+      "id" : "-KySOob6XkFk1AZQrjrd",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eA",
+      "text" : "-KySOob6XkFk1AZQrjrd",
       "title" : "builders",
       "url" : "/explore/#/people/builders"
     },
-    "-KyCI-le2L-QDmnOG3eB" : {
+    "-KySOob6XkFk1AZQrjre" : {
       "category" : "mindmap",
       "fx" : -1002.6581051824645,
       "fy" : -1335.1951301050026,
-      "id" : "-KyCI-le2L-QDmnOG3eB",
+      "id" : "-KySOob6XkFk1AZQrjre",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eB",
+      "text" : "-KySOob6XkFk1AZQrjre",
       "title" : "teachers",
       "url" : "/explore/#/people/teachers"
     },
-    "-KyCI-le2L-QDmnOG3eC" : {
+    "-KySOob6XkFk1AZQrjrf" : {
       "category" : "mindmap",
       "fx" : -715.9097884856816,
       "fy" : -1520.267559079825,
-      "id" : "-KyCI-le2L-QDmnOG3eC",
+      "id" : "-KySOob6XkFk1AZQrjrf",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eC",
+      "text" : "-KySOob6XkFk1AZQrjrf",
       "title" : "musicologists",
       "url" : "/explore/#/people/musicologists"
     },
-    "-KyCI-le2L-QDmnOG3eD" : {
+    "-KySOob6XkFk1AZQrjrg" : {
       "category" : "mindmap",
       "fx" : -879.9162981113077,
       "fy" : -1174.316076007125,
-      "id" : "-KyCI-le2L-QDmnOG3eD",
+      "id" : "-KySOob6XkFk1AZQrjrg",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eD",
+      "text" : "-KySOob6XkFk1AZQrjrg",
       "title" : "collectors",
       "url" : "/explore/#/people/collectors"
     },
-    "-KyCI-le2L-QDmnOG3eE" : {
+    "-KySOob6XkFk1AZQrjrh" : {
       "category" : "mindmap",
       "fx" : 382.81951579171255,
       "fy" : -1097.6860298396841,
-      "id" : "-KyCI-le2L-QDmnOG3eE",
+      "id" : "-KySOob6XkFk1AZQrjrh",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eE",
+      "text" : "-KySOob6XkFk1AZQrjrh",
       "title" : "live sound",
       "url" : "/explore/#/business/live-sound"
     },
-    "-KyCI-le2L-QDmnOG3eF" : {
+    "-KySOob6XkFk1AZQrjri" : {
       "category" : "mindmap",
       "fx" : 110.23474235735762,
       "fy" : -1282.4671045708674,
-      "id" : "-KyCI-le2L-QDmnOG3eF",
+      "id" : "-KySOob6XkFk1AZQrjri",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eF",
+      "text" : "-KySOob6XkFk1AZQrjri",
       "title" : "production",
       "url" : "/explore/#/business/production"
     },
-    "-KyCI-le2L-QDmnOG3eG" : {
+    "-KySOob6XkFk1AZQrjrj" : {
       "category" : "mindmap",
       "fx" : 323.777955766212,
       "fy" : -1246.7480987231763,
-      "id" : "-KyCI-le2L-QDmnOG3eG",
+      "id" : "-KySOob6XkFk1AZQrjrj",
       "note" : "",
-      "text" : "-KyCI-le2L-QDmnOG3eG",
+      "text" : "-KySOob6XkFk1AZQrjrj",
       "title" : "booking",
       "url" : "/explore/#/business/booking"
     },
-    "-KyCI-lfTKbT80Pj0RWR" : {
+    "-KySOob71ZHI7eF4mLwP" : {
       "category" : "mindmap",
       "fx" : -209.74898983732382,
       "fy" : -1221.7975079980417,
-      "id" : "-KyCI-lfTKbT80Pj0RWR",
+      "id" : "-KySOob71ZHI7eF4mLwP",
       "note" : "",
-      "text" : "-KyCI-lfTKbT80Pj0RWR",
+      "text" : "-KySOob71ZHI7eF4mLwP",
       "title" : "management",
       "url" : "/explore/#/business/management"
     },
-    "-KyCI-lfTKbT80Pj0RWS" : {
+    "-KySOob71ZHI7eF4mLwQ" : {
       "category" : "mindmap",
       "fx" : 238.70506788470436,
       "fy" : -980.877684719247,
-      "id" : "-KyCI-lfTKbT80Pj0RWS",
+      "id" : "-KySOob71ZHI7eF4mLwQ",
       "note" : "",
-      "text" : "-KyCI-lfTKbT80Pj0RWS",
+      "text" : "-KySOob71ZHI7eF4mLwQ",
       "title" : "recording",
       "url" : "/explore/#/business/recording"
     },
-    "-KyCI-lfTKbT80Pj0RWT" : {
+    "-KySOob71ZHI7eF4mLwR" : {
       "category" : "mindmap",
       "fx" : -164.8224491863338,
       "fy" : -1066.2215410053047,
-      "id" : "-KyCI-lfTKbT80Pj0RWT",
+      "id" : "-KySOob71ZHI7eF4mLwR",
       "note" : "",
-      "text" : "-KyCI-lfTKbT80Pj0RWT",
+      "text" : "-KySOob71ZHI7eF4mLwR",
       "title" : "promotion",
       "url" : "/explore/#/business/promotion"
     },
-    "-KyCI-lfTKbT80Pj0RWU" : {
+    "-KySOob71ZHI7eF4mLwS" : {
       "category" : "mindmap",
       "fx" : -57.09086103648838,
       "fy" : -1395.1044894889433,
-      "id" : "-KyCI-lfTKbT80Pj0RWU",
+      "id" : "-KySOob71ZHI7eF4mLwS",
       "note" : "",
-      "text" : "-KyCI-lfTKbT80Pj0RWU",
+      "text" : "-KySOob71ZHI7eF4mLwS",
       "title" : "conventions",
       "url" : "/explore/#/events/conventions/"
     },
-    "-KyCI-lfTKbT80Pj0RWV" : {
+    "-KySOob71ZHI7eF4mLwT" : {
       "category" : "mindmap",
       "fx" : -49.38683553575095,
       "fy" : -1642.4883757889531,
-      "id" : "-KyCI-lfTKbT80Pj0RWV",
+      "id" : "-KySOob71ZHI7eF4mLwT",
       "note" : "",
-      "text" : "-KyCI-lfTKbT80Pj0RWV",
+      "text" : "-KySOob71ZHI7eF4mLwT",
       "title" : "festivals",
       "url" : "/explore/#/events/festivals"
     },
-    "-KyCI-lfTKbT80Pj0RWW" : {
+    "-KySOob71ZHI7eF4mLwU" : {
       "category" : "mindmap",
       "fx" : 306.94198533218173,
       "fy" : -1433.26504387743,
-      "id" : "-KyCI-lfTKbT80Pj0RWW",
+      "id" : "-KySOob71ZHI7eF4mLwU",
       "note" : "",
-      "text" : "-KyCI-lfTKbT80Pj0RWW",
+      "text" : "-KySOob71ZHI7eF4mLwU",
       "title" : "workshops",
       "url" : "/explore/#/events/workshops/"
     },
-    "-KyCI-lg9NT35bZwd9qy" : {
+    "-KySOob80veNzgAQ-OLe" : {
       "category" : "mindmap",
       "fx" : -580.5055533169593,
       "fy" : -1205.3992887963182,
-      "id" : "-KyCI-lg9NT35bZwd9qy",
+      "id" : "-KySOob80veNzgAQ-OLe",
       "note" : "",
-      "text" : "-KyCI-lg9NT35bZwd9qy",
+      "text" : "-KySOob80veNzgAQ-OLe",
       "title" : "jam sessions",
       "url" : "/explore/#/learn/jam-sessions"
     },
-    "-KyCI-lg9NT35bZwd9qz" : {
+    "-KySOob80veNzgAQ-OLf" : {
       "category" : "mindmap",
       "fx" : -613.980913398921,
       "fy" : -1404.3413280487434,
-      "id" : "-KyCI-lg9NT35bZwd9qz",
+      "id" : "-KySOob80veNzgAQ-OLf",
       "note" : "",
-      "text" : "-KyCI-lg9NT35bZwd9qz",
+      "text" : "-KySOob80veNzgAQ-OLf",
       "title" : "songs",
       "url" : "/explore/#/learn/songs/"
     },
-    "-KyCI-lg9NT35bZwd9r-" : {
+    "-KySOob80veNzgAQ-OLg" : {
       "category" : "mindmap",
       "fx" : 271.32547632092053,
       "fy" : -1631.947317651343,
-      "id" : "-KyCI-lg9NT35bZwd9r-",
+      "id" : "-KySOob80veNzgAQ-OLg",
       "note" : "",
-      "text" : "-KyCI-lg9NT35bZwd9r-",
+      "text" : "-KySOob80veNzgAQ-OLg",
       "title" : "contests",
       "url" : "/explore/#/events/contests"
     },
-    "-KyCI-lg9NT35bZwd9r0" : {
+    "-KySOob80veNzgAQ-OLh" : {
       "category" : "mindmap",
       "fx" : -286.002914089422,
       "fy" : -1385.5054057798673,
-      "id" : "-KyCI-lg9NT35bZwd9r0",
+      "id" : "-KySOob80veNzgAQ-OLh",
       "note" : "",
-      "text" : "-KyCI-lg9NT35bZwd9r0",
+      "text" : "-KySOob80veNzgAQ-OLh",
       "title" : "styles",
       "url" : "/explore/#/learn/styles/"
     },
-    "-KyCI-lg9NT35bZwd9r1" : {
+    "-KySOob9BV0WA19NymS-" : {
       "category" : "mindmap",
       "fx" : 29.78031227384713,
       "fy" : -923.9029199905201,
-      "id" : "-KyCI-lg9NT35bZwd9r1",
+      "id" : "-KySOob9BV0WA19NymS-",
       "note" : "",
-      "text" : "-KyCI-lg9NT35bZwd9r1",
+      "text" : "-KySOob9BV0WA19NymS-",
       "title" : "gigging",
       "url" : "/explore/#/business/gigging"
     }

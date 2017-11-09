@@ -132,9 +132,13 @@ export const d3Drag = (simulation, svg, nodes) => {
 /*
  * Return pan and zoom behavior to use on d3.selection.call().
  */
-export const d3PanZoom = el => (
-  zoom().scaleExtent([0.3, 5])
-    .on('zoom', () => (
-      el.selectAll('svg > g').attr('transform', event.transform)
-    ))
-);
+/* eslint-disable arrow-parens */
+export const d3PanZoom = (el, mindMap) => (zoom().scaleExtent([0.3, 5])
+  .on('zoom', (() => {
+    mindMap.setState((prevState) => {
+      el.selectAll('svg > g').attr('transform', event.transform);
+      const editor = prevState.editor;
+      editor.lastTransform = event.transform;
+      return { editor };
+    });
+  })));

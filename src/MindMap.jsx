@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import {
   forceCollide,
   forceLink,
@@ -349,7 +349,7 @@ export class MindMapEditContainer extends React.Component {
   }
 }
 
-export class MindMap extends Component {
+export class MindMap extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -637,6 +637,11 @@ export class MindMap extends Component {
   }
   /* eslint-enable no-param-reassign */
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //     console.log('HI THERE PK')
+  //   return true;
+  // }
+
   /*
    * Render mind map using D3.
    */
@@ -645,7 +650,8 @@ export class MindMap extends Component {
 
     // Clear the SVG in case there's stuff already there.
     svg.selectAll('*').remove();
-    var vb = svg.attr('viewBox');
+
+
 
     var connsCopy = this.props.connections;
     var nodesCopy = this.props.nodes;
@@ -679,9 +685,16 @@ export class MindMap extends Component {
     this.props.onNodesDrawn(nodes);
 
     // Add pan and zoom behavior and remove double click to zoom.
-    svg.attr('viewBox', vb || getViewBox(nodes.data()))
-      .call(d3PanZoom(svg))
+    var vb = getViewBox(nodes.data())
+    svg
+      .attr('viewBox', vb)
+    // .attr('viewBox', getViewBox(nodes.data()))
+      .call(d3PanZoom(svg, this))
       .on('dblclick.zoom', null);
+
+    if (this.state.editor && this.state.editor.lastTransform){
+      svg.selectAll('svg > g').attr('transform', this.state.editor.lastTransform);
+    }
 
     if (this.wrapper){
       this.wrapper.scrollTop = 0;
