@@ -30,7 +30,9 @@
     "fs-walk": "0.0.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-jsonschema-form": "^0.49.0"
+    "react-jsonschema-form": "^0.49.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.76.0"
   },
   "peerDependencies": {
     "react": "^15.5.4"
@@ -49,6 +51,8 @@
     "eslint-loader": "^1.7.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^1.1.5",
     "http-server": "^0.9.0",
     "node-sass": "^4.5.0",
     "postcss-loader": "^2.0.5",

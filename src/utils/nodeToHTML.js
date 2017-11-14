@@ -1,4 +1,4 @@
-import { categoryToIMG } from '../parser/emojis';
+// import { categoryToIMG } from '../parser/emojis';
 
 /*
  * Return the HTML representation of a node.
@@ -7,15 +7,36 @@ import { categoryToIMG } from '../parser/emojis';
  */
 export default (node) => {
   let href = `href="${node.url}"`;
-  let emoji = categoryToIMG(node.category);
+  // let emoji = categoryToIMG(node.category);
 
   // If url is not specified remove the emoji and the href attribute,
   // so that the node isn't clickable, and the user can see that without
   // having to hover the node.
   if (!node.url) {
     href = '';
-    emoji = '';
+    // emoji = '';
   }
 
-  return `<a id="node-${node.index}" ${href}>${node.title || ''} ${emoji}</a>`;
+  // return `<a id="node-${node.index}" ${href}>${node.title || ''} ${emoji}</a>`;
+
+  // return `<div id="node-${node.index}" class="ref-el"><map-node></map-node></div>`;
+
+  let title;
+  if (href) {
+    title = `<a ${href} title="Go to Link">${node.title || ''} <text class="ui small external icon">&#xf08e</text></a>`;
+  } else {
+    title = `${node.title || ''}`;
+  }
+
+  return `
+  <div class="ui tiny header">
+    ${title || ''}
+  </div>
+  <div class="ui mini icon buttons" data-node-id="${node.text}">
+    <div class="ui button explore-topic" title="Explore attached resources"><span><text class="ui expand icon">&#xf065</text></span></div>
+    <div class="ui button like-topic" title="Like this topic"><span><text class="ui empty heart icon">&#xf08a</text></span></div>
+    <div class="ui button share-topic" title="Share this topic"><span><text class="ui share alternate icon">&#xf1e0</text></span></div>
+    <div class="ui button add-topic" title="Add a related topic"><span><text class="ui plus icon">&#xf067</text></span></div>
+  </div>
+`;
 };

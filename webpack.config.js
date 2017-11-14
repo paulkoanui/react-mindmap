@@ -1,4 +1,5 @@
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: './src/index.jsx',
@@ -22,10 +23,39 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel-loader',
       },
+      // {
+      //   test: /\.css$/,
+      //   include: '/node_modules/semantic-ui-css',
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: "style-loader",
+      //     use: [
+      //       {
+      //         loader: 'css-loader',
+      //       },
+      //       {
+      //         loader: 'postcss-loader',
+      //       },
+      //     ],
+      //   })
+      // },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
       {
         test: /\.sass$/,
         exclude: /node_modules/,
         loader: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            limit: 100000,
+          },
+        },
       },
     ],
   },

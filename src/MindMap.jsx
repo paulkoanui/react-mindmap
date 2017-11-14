@@ -612,21 +612,57 @@ export class MindMap extends PureComponent {
       .on('dblclick', (node) => {
         node.fx = null;
         node.fy = null;
-      })
-      .on('click', (node) => {
-        this.setState(function(prevState) {
-          //build the formData that the user can edit
-          var editor = prevState.editor;
-          editor.formData = this.getFormData(node);
-          editor.schema.title = `Topic: ${editor.formData.title}`;
-          editor.formDataOrig = JSON.stringify(editor.formData);
-          this.props.onSelect({
-            action: 'select',
-            editing: true,
-            from: JSON.parse(editor.formDataOrig),
-            to: editor.formData
-          });
-          return { editor: editor };
+      });
+      // .on('click', (node) => {
+      //   this.setState(function(prevState) {
+      //     //build the formData that the user can edit
+      //     var editor = prevState.editor;
+      //     editor.formData = this.getFormData(node);
+      //     editor.schema.title = `Topic: ${editor.formData.title}`;
+      //     editor.formDataOrig = JSON.stringify(editor.formData);
+      //     this.props.onSelect({
+      //       action: 'select',
+      //       editing: true,
+      //       from: JSON.parse(editor.formDataOrig),
+      //       to: editor.formData
+      //     });
+      //     return { editor: editor };
+      //   });
+      // });
+
+    nodes
+      .selectAll('.explore-topic')
+      .on('click', (a, b, c) => {
+        this.props.onSelect({
+          action: 'explore',
+          nodeId: c[0].parentElement.dataset["nodeId"]
+        });
+      });
+
+    nodes
+      .selectAll('.like-topic')
+      .on('click', (a, b, c) => {
+        this.props.onSelect({
+          action: 'like',
+          nodeId: c[0].parentElement.dataset["nodeId"]
+        });
+      });
+
+    nodes
+      .selectAll('.share-topic')
+      .on('click', (a, b, c) => {
+        this.props.onSelect({
+          action: 'share',
+          nodeId: c[0].parentElement.dataset["nodeId"]
+        });
+      });
+
+    nodes
+      .selectAll('.add-topic')
+      .on('click', (a, b, c) => {
+        this.props.onSelect({
+          action: 'add',
+          nodeId: c[0].parentElement.dataset["nodeId"]
         });
       });
 

@@ -18,31 +18,65 @@ body
   &:focus
     outline: none
 
-.mindmap-node > a
-  background: $grey100
+//.mindmap-node > a
+//  background: $grey100
+//  border-radius: 10px
+//  box-shadow: $shadow
+//  color: $grey900
+//  display: inline-block
+//  font-family: 'Raleway'
+//  font-size: 22px
+//  margin: 0 auto
+//  padding: 15px
+//  text-align: center
+//  text-decoration: none
+//  transition: background-color .2s, color .2s ease-out
+//
+//  &[href]
+//    &:hover
+//      background-color: $orange700
+//      color: $white
+//      cursor: pointer
+
+.mindmap-node > .ref-el
+  background: rgba(255,249,196 ,1)
   border-radius: 10px
   box-shadow: $shadow
-  color: $grey900
-  display: inline-block
-  font-family: 'Raleway'
-  font-size: 22px
-  margin: 0 auto
+  //color: $grey900
+  //display: inline-block
+  //font-family: 'Raleway'
+  //font-size: 22px
+  //margin: 0 auto
   padding: 15px
-  text-align: center
-  text-decoration: none
+  //text-align: center
+  //text-decoration: none
   transition: background-color .2s, color .2s ease-out
 
-  &[href]
-    &:hover
-      background-color: $orange700
-      color: $white
-      cursor: pointer
+.ui.button
+  background: rgba(253,216,53 ,0.4) none
 
-.mindmap-node--editable
-  cursor: all-scroll
+svg .btns-only
+  font-family: Icons
 
-  & > a
-    pointer-events: none
+svg text.icon
+  //background: $grey100
+  //border-radius: 10px
+  //box-shadow: $shadow
+  //color: $grey900
+  //display: inline-block
+  font-family: Icons
+  //font-size: 22px
+  //margin: 0 auto
+  //padding: 15px
+  //text-align: center
+  //text-decoration: none
+  //transition: background-color .2s, color .2s ease-out
+
+//.mindmap-node--editable
+//  cursor: all-scroll
+//
+//  & > a
+//    pointer-events: none
 
 .mindmap-subnode-group
   align-items: center

@@ -32,11 +32,23 @@ export const d3Nodes = (svg, nodes) => {
     .data(nodes)
     .enter();
 
+  // const d3nodes = selection
+  //   .append('foreignObject')
+  //   .attr('class', 'mindmap-node')
+  //   .attr('width', node => node.width + 4)
+  //   .attr('height', node => node.height)
+  //   .html(node => node.html);
+
   const d3nodes = selection
     .append('foreignObject')
     .attr('class', 'mindmap-node')
     .attr('width', node => node.width + 4)
-    .attr('height', node => node.height)
+    .attr('height', node => node.height);
+
+  d3nodes
+    .append('xhtml:div')
+    .attr('class', 'ref-el')
+    .attr('id', node => `node-${node.index}`)
     .html(node => node.html);
 
   const d3subnodes = selection.append('foreignObject')
