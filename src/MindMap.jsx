@@ -666,7 +666,7 @@ export class MindMap extends PureComponent {
         });
       });
 
-    nodes.call(d3Drag(this.state.simulation, svg, nodes));
+    nodes.call(d3Drag(this.state.simulation, svg, nodes, this.props.onSelect));
 
     this.state.simulation
       .alphaTarget(0.5).on('tick', () => onTick(conns, nodes, subnodes));

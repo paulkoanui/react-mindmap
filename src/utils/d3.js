@@ -106,7 +106,7 @@ export const onTick = (conns, nodes, subnodes) => {
 /*
  * Return drag behavior to use on d3.selection.call().
  */
-export const d3Drag = (simulation, svg, nodes) => {
+export const d3Drag = (simulation, svg, nodes, onSelect) => {
   Object.getOwnPropertyNames(nodes).forEach((i) => {
     const node = nodes[i];
     node.fx = node.x || node.fx;
@@ -125,12 +125,18 @@ export const d3Drag = (simulation, svg, nodes) => {
     node.fy = event.y || event.fy;
   };
 
-  const dragEnd = () => {
+  const dragEnd = (node) => {
     if (!event.active) {
       simulation.alphaTarget(0);
     }
 
     svg.attr('viewBox', getViewBox(nodes.data()));
+
+    onSelect({
+      action: 'move',
+      nodeId: node.id,
+      loc: { fx: node.fx, fy: node.fy, x: node.x, y: node.y },
+    });
   };
 
   return drag()
