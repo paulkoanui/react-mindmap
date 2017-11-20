@@ -5,8 +5,6 @@ import {
   forceManyBody,
   forceSimulation,
   select,
-  zoom,
-  zoomIdentity,
 } from 'd3';
 import Form from 'react-jsonschema-form';
 
@@ -33,6 +31,7 @@ export class MindMapEditContainer extends React.Component {
       nodes: JSON.parse(JSON.stringify(props.nodes)) || [],
       subnodes: [],
       edits: [],
+      moveNode: ''
     };
   }
 
@@ -488,13 +487,15 @@ export class MindMap extends PureComponent {
   /*
    * Generates HTML and dimensions for nodes and subnodes.
    */
-  prepareNodes(nodes) {
+  prepareNodes(nodes, moveNode) {
     const render = (node) => {
-      node.html = nodeToHTML(node);
+      node.html = nodeToHTML(node, moveNode);
       node.nodesHTML = subnodesToHTML(node.nodes);
 
-      const dimensions = getDimensions(node.html, {}, 'mindmap-node');
-      node.width = dimensions.width;
+      const dimensions = getDimensions(node.html, {}, 'ref-el');
+      // dimensions.width = dimensions.width || 200;
+      // dimensions.height = dimensions.height || 200;
+      node.width = dimensions.width + 30;
       node.height = dimensions.height;
 
       const nodesDimensions = getDimensions(node.nodesHTML, {}, 'mindmap-subnode-text');
@@ -612,23 +613,20 @@ export class MindMap extends PureComponent {
       .on('dblclick', (node) => {
         node.fx = null;
         node.fy = null;
+      })
+      .on('click', (node) => {
+        // this.props.onSelect({
+        //   action: 'explore',
+        //   nodeId: c[0].parentElement.dataset["nodeId"]
+        // });
+        this.setState(function(prevState) {
+          if (prevState.moveNode === node.id){
+            return { moveNode: '' };
+          }else{
+            return { moveNode: node.id };
+          }
+        });
       });
-      // .on('click', (node) => {
-      //   this.setState(function(prevState) {
-      //     //build the formData that the user can edit
-      //     var editor = prevState.editor;
-      //     editor.formData = this.getFormData(node);
-      //     editor.schema.title = `Topic: ${editor.formData.title}`;
-      //     editor.formDataOrig = JSON.stringify(editor.formData);
-      //     this.props.onSelect({
-      //       action: 'select',
-      //       editing: true,
-      //       from: JSON.parse(editor.formDataOrig),
-      //       to: editor.formData
-      //     });
-      //     return { editor: editor };
-      //   });
-      // });
 
     nodes
       .selectAll('.explore-topic')
@@ -666,7 +664,7 @@ export class MindMap extends PureComponent {
         });
       });
 
-    nodes.call(d3Drag(this.state.simulation, svg, nodes, this.props.onSelect));
+    nodes.call(d3Drag(this.state.simulation, svg, nodes, this.props.onSelect, this));
 
     this.state.simulation
       .alphaTarget(0.5).on('tick', () => onTick(conns, nodes, subnodes));
@@ -687,14 +685,12 @@ export class MindMap extends PureComponent {
     // Clear the SVG in case there's stuff already there.
     svg.selectAll('*').remove();
 
-
-
     var connsCopy = this.props.connections;
     var nodesCopy = this.props.nodes;
 
     // Add subnode group
     svg.append('g').attr('id', 'mindmap-subnodes');
-    this.prepareNodes(nodesCopy);
+    this.prepareNodes(nodesCopy, this.state.moveNode);
 
     // Bind data to SVG elements and set all the properties to render them.
     const connections = d3Connections(svg, connsCopy);
@@ -731,6 +727,28 @@ export class MindMap extends PureComponent {
     if (this.state.editor && this.state.editor.lastTransform){
       svg.selectAll('svg > g').attr('transform', this.state.editor.lastTransform);
     }
+    else { // TODO: otherwise, start the view zoomed in
+      // svg.node().setAttribute("transform-origin", "50% 50% 0");
+
+
+      // console.log('W: ' + svg.node().getBBox().width / 2 / 2);
+      // console.log('H: ' + svg.node().getBBox().height / 2 / 2);
+
+      // var t = zoomIdentity.scale(2);
+      // // var transform = {x: 0, y: 0, k: 20};
+      // this.setState((prevState) => {
+      //   // svg.call(zoom().transform, t);
+      //   // svg.node().setAttribute("transform-origin", "50% 50% 0");
+      //   svg.selectAll('svg > g').attr('transform', t);
+      //   const editor = prevState.editor;
+      //   editor.lastTransform = t;
+      //   return { editor };
+      // });
+
+      //"translate(" + transform.x + "," + transform.y + ") scale(" + transform.k + ")"
+
+    }
+
 
     if (this.wrapper){
       this.wrapper.scrollTop = 0;
@@ -744,7 +762,7 @@ export class MindMap extends PureComponent {
   }
 
   componentDidUpdate() {
-    zoom().transform(select(this.refs.mountPoint), zoomIdentity);
+    // zoom().transform(select(this.refs.mountPoint), zoomIdentity);
     this.renderMap();
   }
 

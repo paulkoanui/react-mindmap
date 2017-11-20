@@ -42,18 +42,18 @@ export const d3Nodes = (svg, nodes) => {
   const d3nodes = selection
     .append('foreignObject')
     .attr('class', 'mindmap-node')
-    .attr('width', node => node.width + 4)
+    .attr('width', node => node.width)
     .attr('height', node => node.height);
 
   d3nodes
     .append('xhtml:div')
     .attr('class', 'ref-el')
-    .attr('id', node => `node-${node.index}`)
+    // .attr('id', node => `node-${node.id}`)
     .html(node => node.html);
 
   const d3subnodes = selection.append('foreignObject')
     .attr('class', 'mindmap-subnodes')
-    .attr('width', node => node.nodesWidth + 4)
+    .attr('width', node => node.nodesWidth)
     .attr('height', node => node.nodesHeight)
     .html(subnode => subnode.nodesHTML);
 
@@ -106,37 +106,43 @@ export const onTick = (conns, nodes, subnodes) => {
 /*
  * Return drag behavior to use on d3.selection.call().
  */
-export const d3Drag = (simulation, svg, nodes, onSelect) => {
+export const d3Drag = (simulation, svg, nodes, onSelect, mindMap) => {
   Object.getOwnPropertyNames(nodes).forEach((i) => {
     const node = nodes[i];
     node.fx = node.x || node.fx;
     node.fy = node.y || node.fy;
   });
   const dragStart = (node) => {
-    if (!event.active) {
-      simulation.alphaTarget(0.2).restart();
+    if (node.id === mindMap.state.moveNode) {
+      if (!event.active) {
+        simulation.alphaTarget(0.2).restart();
+      }
+      node.fx = node.x || node.fx;
+      node.fy = node.y || node.fy;
     }
-    node.fx = node.x || node.fx;
-    node.fy = node.y || node.fy;
   };
 
   const dragged = (node) => {
-    node.fx = event.x || event.fx;
-    node.fy = event.y || event.fy;
+    if (node.id === mindMap.state.moveNode) {
+      node.fx = event.x || event.fx;
+      node.fy = event.y || event.fy;
+    }
   };
 
   const dragEnd = (node) => {
-    if (!event.active) {
-      simulation.alphaTarget(0);
+    if (node.id === mindMap.state.moveNode) {
+      if (!event.active) {
+        simulation.alphaTarget(0);
+      }
+
+      svg.attr('viewBox', getViewBox(nodes.data()));
+
+      onSelect({
+        action: 'move',
+        nodeId: node.id,
+        loc: { fx: node.fx, fy: node.fy, x: node.x, y: node.y },
+      });
     }
-
-    svg.attr('viewBox', getViewBox(nodes.data()));
-
-    onSelect({
-      action: 'move',
-      nodeId: node.id,
-      loc: { fx: node.fx, fy: node.fy, x: node.x, y: node.y },
-    });
   };
 
   return drag()
@@ -151,10 +157,11 @@ export const d3Drag = (simulation, svg, nodes, onSelect) => {
  * Return pan and zoom behavior to use on d3.selection.call().
  */
 /* eslint-disable arrow-parens */
-export const d3PanZoom = (el, mindMap) => (zoom().scaleExtent([0.3, 5])
+export const d3PanZoom = (el, mindMap) => (zoom().scaleExtent([0.1, 10])
   .on('zoom', (() => {
     mindMap.setState((prevState) => {
       el.selectAll('svg > g').attr('transform', event.transform);
+      // el.selectAll('svg > g').attr("transform-origin", "50% 50% 0");
       const editor = prevState.editor;
       editor.lastTransform = event.transform;
       return { editor };

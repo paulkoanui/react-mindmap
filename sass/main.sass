@@ -7,9 +7,10 @@ $white: #fff
 $shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
 
 
-body
-  background: $grey800
-  margin: 0
+//body
+  //margin: 0
+//  overflow: hidden
+  //background: $grey800
 
 .mindmap-svg
   height: 100vh
@@ -38,22 +39,53 @@ body
 //      color: $white
 //      cursor: pointer
 
+//.ref-el
+//  background-color: rgba(255,255,255,1)
+
+.ref-el > .ui.message
+  position: inherit
+  //display: table-row
+  //background-color: red
+  border-radius: 4px
+
+.ref-el > .ui.message
+  position: unset
+
+.ref-el .bottom.attached.button
+  position: unset
+  border: 0 none;
+
+.ref-el .ui.attached.buttons
+  position: unset
+
+.no-move
+  display: none !important
+//.ref-el > .ui.message.dimmed
+//  background-color: rgba(255,255,255,0.1)
+
 .mindmap-node > .ref-el
-  background: rgba(255,249,196 ,1)
-  border-radius: 10px
-  box-shadow: $shadow
+  //border-radius: 5px
   //color: $grey900
-  //display: inline-block
+  //box-shadow: $shadow
+  //background: rgba(255,249,196 ,1)
+  //height: 100%
+  width: 100%
+  display: flex
+  overflow: hidden
+  border-radius: 4px
+  transition: background-color .2s, color .2s ease-out
+  //height: 100%
   //font-family: 'Raleway'
   //font-size: 22px
   //margin: 0 auto
-  padding: 15px
   //text-align: center
   //text-decoration: none
-  transition: background-color .2s, color .2s ease-out
 
-.ui.button
-  background: rgba(253,216,53 ,0.4) none
+//.mindmap-node > .ref-el > div
+  //padding: 15px
+
+//.mindmap-node > .ref-el > .tiny.header > .inner
+  //padding: 15px
 
 svg .btns-only
   font-family: Icons
@@ -78,18 +110,18 @@ svg text.icon
 //  & > a
 //    pointer-events: none
 
-.mindmap-subnode-group
-  align-items: center
-  border-left: 4px solid $grey500
-  display: flex
-  margin-left: 15px
-  padding: 5px
-
-  a
-    color: $grey100
-    font-family: 'Raleway'
-    font-size: 16px
-    padding: 2px 5px
+//.mindmap-subnode-group
+//  align-items: center
+//  border-left: 4px solid $grey500
+//  display: flex
+//  margin-left: 15px
+//  padding: 5px
+//
+//  a
+//    color: $grey100
+//    font-family: 'Raleway'
+//    font-size: 16px
+//    padding: 2px 5px
 
 .mindmap-connection
   fill: transparent
@@ -97,41 +129,41 @@ svg text.icon
   stroke-dasharray: 10px 4px
   stroke-width: 3px
 
-.mindmap-emoji
-  height: 24px
-  width: 24px
-
-.reddit-emoji
-  border-radius: 50%
-
-.mindmap-editor.active
-  display: block
-  position: absolute
-  top: 0
-  left: 0
+//.mindmap-emoji
+//  height: 24px
+//  width: 24px
+//
+//.reddit-emoji
+//  border-radius: 50%
+//
+//.mindmap-editor.active
+//  display: block
+//  position: absolute
+//  top: 0
+//  left: 0
   
-.mindmap-wrap
-  display: block
-  position: absolute
-  top: 0
-  left: 0
-  overflow: hidden
-  overflow-y: scroll
-  width: 40%
-  height: 100%
-  background-color: white
-  padding: 24px
-  
-.mindmap-card
-  background: #fff
-  border-radius: 2px
-  display: inline-block
-  padding: 1rem
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
-  
-.danger
-  background-color: red
-  
-@media (max-width: 768px)
-  .mindmap-wrap
-    width: 100%
+//.mindmap-wrap
+//  display: block
+//  position: absolute
+//  top: 0
+//  left: 0
+//  overflow: hidden
+//  overflow-y: scroll
+//  width: 40%
+//  height: 100%
+//  background-color: white
+//  padding: 24px
+//
+//.mindmap-card
+//  background: #fff
+//  border-radius: 2px
+//  display: inline-block
+//  padding: 1rem
+//  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+//
+//.danger
+//  background-color: red
+//
+//@media (max-width: 768px)
+//  .mindmap-wrap
+//    width: 100%
